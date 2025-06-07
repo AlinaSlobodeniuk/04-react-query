@@ -3,7 +3,7 @@ import { Movie } from '../types/movie';
 
 const BASE_URL = "https://api.themoviedb.org/3/search/movie";
 
-interface MovieProps {
+interface MovieSearchResponseProps {
   results: Movie[];
   page: number;
   total_pages: number;
@@ -12,8 +12,8 @@ interface MovieProps {
 export const getMovies = async (
   query: string,
   page: number = 1
-): Promise<MovieProps> => {
-  const { data } = await axios.get<MovieProps>(BASE_URL, {
+): Promise<MovieSearchResponseProps> => {
+  const { data } = await axios.get<MovieSearchResponseProps>(BASE_URL, {
     params: {
       query,
       page,
